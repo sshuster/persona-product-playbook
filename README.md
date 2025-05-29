@@ -1,73 +1,53 @@
-# Welcome to your Lovable project
 
-## Project info
+# AI Persona Assistant - Streamlit Application
 
-**URL**: https://lovable.dev/projects/c11e8e5b-e1f9-4c18-a964-020a04de0204
+A Python/Streamlit application that allows users to create AI personas, select company products, and facilitate interactive learning sessions using Ollama (qwen2.5:0.5b).
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Persona Creation**: Define AI personas with roles, backgrounds, and expertise areas
+- **Company Selection**: Choose from various companies and their products
+- **Interactive Chat**: AI persona asks questions about products and responds to suggestions
+- **Learning Assessment**: AI evaluates if suggestions are satisfactory or if more help is needed
 
-**Use Lovable**
+## Requirements
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c11e8e5b-e1f9-4c18-a964-020a04de0204) and start prompting.
+- Python 3.8+
+- Ollama installed and running locally
+- qwen2.5:0.5b model downloaded in Ollama
 
-Changes made via Lovable will be committed automatically to this repo.
+## Setup
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
 ```
 
-**Edit a file directly in GitHub**
+2. Install and start Ollama:
+```bash
+# Install Ollama (visit https://ollama.ai for instructions)
+# Pull the required model
+ollama pull qwen2.5:0.5b
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Run the Streamlit application:
+```bash
+streamlit run app.py
+```
 
-**Use GitHub Codespaces**
+## Usage
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. **Create Persona**: Define your AI persona's characteristics
+2. **Select Product**: Choose a company and product for the persona to learn about
+3. **Interactive Session**: The AI persona will ask questions about the product
+4. **Provide Suggestions**: Give helpful advice and guidance
+5. **AI Response**: The persona evaluates your suggestions and responds accordingly
 
-## What technologies are used for this project?
+## Architecture
 
-This project is built with:
+- `app.py`: Main Streamlit application with UI components
+- `models.py`: Data models for Persona, Company, and Message
+- `ollama_service.py`: Service layer for Ollama API integration
+- `requirements.txt`: Python dependencies
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c11e8e5b-e1f9-4c18-a964-020a04de0204) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The application uses Ollama's qwen2.5:0.5b model for generating realistic persona questions and responses, with fallback templates when the AI service is unavailable.
